@@ -1,0 +1,53 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class BasePoint {
+    -x: double
+    -y: double
+    +BasePoint(x:double, y:double)
+    +void setX(x:double)
+    +void setY(y:double)
+    +double getX()
+    +double getY()
+    +String type()
+}
+abstract class FigureOnePoint {
+    -p1: double
+    +FigureOnePoint(x:double, y:double, p1:double)
+    +void setP1(p1:double)
+    +double getP1()
+    +void showInfo()
+}
+class Circle{
+    +Circle(x:double, y:double, radius:double)
+    +String type()
+}
+class Square{
+    +Square(x:double, y:double, side:double)
+    +String type()
+}
+abstract class FigureTwoPoint{
+    -p2: double
+    +FigureOnePoint(x:double, y:double,p1:double, p2:double)
+    +void setP2()
+    +double getP2()
+    +void showInfo()
+}
+class Rectangle{
+    +Rectangle(x:double, y:double, width: double, height: double)
+    +String type()
+}
+class Oval{
+    +Oval(x:double, y:double, width: double, height: double)
+    +String type()
+}
+
+BasePoint <|-- FigureOnePoint
+FigureOnePoint <|-- FigureTwoPoint
+
+FigureOnePoint <|-- Circle
+FigureOnePoint <|-- Square
+
+FigureTwoPoint <|-- Rectangle
+FigureTwoPoint <|-- Oval
+@enduml
